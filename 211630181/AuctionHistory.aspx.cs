@@ -15,6 +15,7 @@ public partial class Database_AuctionHistory : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        //Loading the page
         AH();
     }
     private void AH()
