@@ -1,0 +1,77 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <style>
+        .mdl-card-square {
+            background-color: #F5F5F5;
+        }
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-blue.min.css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link rel="stylesheet" href="StyleSheet.css" />
+    <script defer="" src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <title></title>
+    <asp:ContentPlaceHolder ID="Title" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="background-image: url(Pictures/back.png); background-repeat: no-repeat; background-size: cover">
+    <form id="form1" runat="server">
+        <div class="layout-waterfall mdl-layout mdl-js-layout">
+            <header class="mdl-layout__header mdl-layout__header--waterfall">
+                <!-- Top row, always visible -->
+                <div class="mdl-layout__header-row">
+                    <asp:ImageButton OnClick="Img_logo_Click" ID="Img_logo" Width="18%" Height="100%" ImageUrl="~/Pictures/logo.png" runat="server" />
+                    <div class="mdl-layout-spacer"></div>
+                    <asp:Label runat="server" ID="LBL_Userinfo">Welcome guest</asp:Label>
+
+                </div>
+                 <!-- Bottom row, not visible on scroll -->
+    <div class="mdl-layout__header-row">
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation -->
+      <nav class="mdl-navigation">
+        <asp:LinkButton runat="server" ID="LinkAuctions" OnClick="LinkAuctions_Click" Text="Auctions" CssClass="mdl-navigation__link"></asp:LinkButton>
+        <asp:LinkButton runat="server" ID="Link2" CssClass="mdl-navigation__link" Text="Register"></asp:LinkButton>
+        <asp:LinkButton runat="server" ID="Link3" CssClass="mdl-navigation__link" Text="Login"></asp:LinkButton>
+      </nav>
+    </div>
+            </header>
+            <div class="mdl-layout__drawer">
+
+                <span class="mdl-layout-title">Menu</span>
+                <nav class="mdl-navigation">
+                    
+                    <asp:HyperLink ID="HomeP" NavigateUrl="~/Home.aspx" CssClass="mdl-navigation__link" runat="server"><div class="material-icons mdl-badge mdl-badge--overlap">home</div>     Home</asp:HyperLink>
+                    <asp:HyperLink ID="ProductList" NavigateUrl="~/ProductList.aspx?page=1" CssClass="mdl-navigation__link" runat="server"><div class="material-icons mdl-badge mdl-badge--overlap">label</div>     Auctions</asp:HyperLink>
+                    <asp:HyperLink ID="Login" NavigateUrl="~/Login.aspx" CssClass="mdl-navigation__link" runat="server"><div class="material-icons mdl-badge mdl-badge--overlap">label</div>    Login</asp:HyperLink>
+                    <asp:HyperLink ID="Register" NavigateUrl="~/Register.aspx" CssClass="mdl-navigation__link" runat="server"><div class="material-icons mdl-badge mdl-badge--overlap">label</div>     Register</asp:HyperLink>
+                    <asp:HyperLink ID="UProfile" NavigateUrl="~/ChangeInfo.aspx" CssClass="mdl-navigation__link" runat="server"><div class="material-icons mdl-badge mdl-badge--overlap">account_circle</div>    Profile</asp:HyperLink>
+                    <asp:HyperLink ID="AH" NavigateUrl="~/AuctionHistory.aspx" CssClass="mdl-navigation__link" runat="server"><div class="material-icons mdl-badge mdl-badge--overlap">label</div>    Auction history</asp:HyperLink>
+                    <asp:HyperLink ID="SellP" NavigateUrl="~/SellPage.aspx" CssClass="mdl-navigation__link" runat="server"><div class="material-icons mdl-badge mdl-badge--overlap">gavel</div>    Sell</asp:HyperLink>
+                    <asp:HyperLink ID="ManagerSide" NavigateUrl="~/manager.aspx" runat="server" Text="manager" CssClass="mdl-navigation__link"></asp:HyperLink>
+                    <asp:LinkButton runat="server" ID="Logout" OnClick="Logout_Click" Visible="false" CssClass="mdl-navigation__link" Text="Logout"></asp:LinkButton>
+                    
+                </nav>
+            </div>
+            <main class="mdl-layout__content">
+                <div class="page-content">
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+
+                    <asp:ContentPlaceHolder ID="Page_Content" runat="server">
+                    </asp:ContentPlaceHolder>
+
+                </div>
+            </main>
+
+        </div>
+    </form>
+</body>
+</html>
